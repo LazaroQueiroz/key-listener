@@ -1,0 +1,5 @@
+[Unit]
+Description=Key listener to enable keyboard shortcuts
+[Service]
+ExecStart=/usr/bin/key_listener
+User=root
