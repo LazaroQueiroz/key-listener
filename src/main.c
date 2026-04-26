@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include <unistd.h>
 
@@ -10,10 +11,12 @@
 time_t last_mtime = -1;
 struct shortcut shortcuts[512];
 
-char* PATH="/home/lazaro/key_listener/config/shortcuts.txt";
 
+char* USER = "";
 int main() {
-	char path[4096];
+	// const char* USER = getenv("USER");
+	char PATH[4096]; 
+	snprintf(PATH, sizeof(PATH), "/home/%s/.config/key_listener/shortcuts.txt", USER);
 	// monitor(path, &last_mtime);
 	process_file(PATH, shortcuts);
 	key_listener(shortcuts);
