@@ -2,4 +2,7 @@
 Description=Key listener to enable keyboard shortcuts
 [Service]
 ExecStart=/usr/bin/key_listener
+Restart=on-failure
 User=root
+[Install]
+WantedBy=graphical.target
